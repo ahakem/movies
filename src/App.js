@@ -6,7 +6,7 @@ import { useStore } from "./store";
 import Movies from "./screens/Movies";
 export default function App() {
   const store = useStore();
-
+  
   return (
     <Provider store={store}>
       <Layout>

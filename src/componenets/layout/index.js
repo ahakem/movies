@@ -19,7 +19,7 @@ const Layout = (props) => {
         </Toolbar>
       </AppBar>
       <main>
-        <Container maxWidth="lg">{children}</Container>
+        <Container maxWidth="xl">{children}</Container>
       </main>
     </>
   );
