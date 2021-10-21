@@ -4,11 +4,13 @@ const movies = (
   state = { moviesList: [], favoritMovies: [] },
   action
 ) => {
+    
   switch (action.type) {
     case moviesActionTypes.INIT_MOVIES:
-      return {
-        //
-      };
+        return {
+            ...state,
+            moviesList: [...action.data],
+          };
 
       case moviesActionTypes.STAR_MOVIE:
       return {

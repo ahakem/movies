@@ -6,21 +6,21 @@ export const moviesActionTypes = {
   
   export const initMovies = (data) => {
     return { 
-      type: MoviesActionTypes.INIT_MOVIES,
+      type: moviesActionTypes.INIT_MOVIES,
       data: data,
     }
   }
   
   export const starMovie = (data) => {
     return { 
-      type: MoviesActionTypes.STAR_MOVIE,
+      type: moviesActionTypes.STAR_MOVIE,
       data: data,
     }
   }
 
   export const unstarMovie = (data) => {
     return { 
-      type: MoviesActionTypes.UNSTAR_MOVIE,
+      type: moviesActionTypes.UNSTAR_MOVIE,
       data: data,
     }
   }
