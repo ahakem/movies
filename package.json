@@ -3,19 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@mui/icons-material": "^5.0.4",
     "@mui/lab": "latest",
     "@mui/material": "latest",
     "@mui/styled-engine-sc": "latest",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "@testing-library/user-event": "latest",
+    "add": "^2.0.6",
+    "axios": "^0.23.0",
     "react": "latest",
     "react-dom": "latest",
     "react-redux": "^7.2.5",
     "react-scripts": "latest",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
-    "styled-components": "latest"
+    "styled-components": "latest",
+    "yarn": "^1.22.17"
   },
   "scripts": {
     "start": "craco start",
