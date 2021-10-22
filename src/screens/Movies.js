@@ -2,13 +2,8 @@ import React, { useEffect } from "react";
 import axios, { API } from "../config/axios";
 import {
   Grid,
-  CardMedia,
-  CardContent,
-  Typography,
-  Button,
-  Card,
-  CardActions,
 } from "@mui/material";
+import MovieCard from '../componenets/MovieCard/index'
 import { connect } from "react-redux";
 import { initMovies, starMovie, unstarMovie } from "../store/movies/actions";
 const Movies = (props) => {
@@ -19,6 +14,7 @@ const Movies = (props) => {
       .then(function (response) {
         // handle success
         init(response.data.results);
+        console.table(response.data.results[0])
       })
       .catch(function (error) {
         // handle error
@@ -36,30 +32,7 @@ const Movies = (props) => {
   return (
     <Grid container spacing={4}>
       {moviesList.map((movie) => (
-        <Grid key={movie.id} item xs={12} sm={6} md={4} lg={4} xl={3}>
-          <Card
-            sx={{
-              // height: "100%",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <CardMedia
-              component="img"
-              image={`https://www.themoviedb.org/t/p/w440_and_h660_face/${movie.poster_path}`}
-              alt="random"
-            />
-            <CardContent sx={{ flexGrow: 1 }}>
-              <Typography gutterBottom variant="h6" component="h2">
-                {movie.title}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">View</Button>
-              <Button size="small">Edit</Button>
-            </CardActions>
-          </Card>
-        </Grid>
+        <MovieCard key={movie.id} movie={movie}/>
       ))}
     </Grid>
   );

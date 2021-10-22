@@ -12,6 +12,7 @@
     "@testing-library/user-event": "latest",
     "add": "^2.0.6",
     "axios": "^0.23.0",
+    "dayjs": "^1.10.7",
     "react": "latest",
     "react-dom": "latest",
     "react-redux": "^7.2.5",
