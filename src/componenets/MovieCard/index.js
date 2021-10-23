@@ -14,9 +14,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import dayjs from "dayjs";
 
 import { BoxHeader } from "./style";
+import notFound from '../../assets/imgs/not-found.png'
 const MovieCard = ({ movie, handleRemoveMovie, handleLikeMovie }) => {
-
-  
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
       <Card>
@@ -29,7 +28,7 @@ const MovieCard = ({ movie, handleRemoveMovie, handleLikeMovie }) => {
         <CardMedia
           component="img"
           height="194"
-          image={`https://www.themoviedb.org/t/p/w440_and_h660_face/${movie.poster_path}`}
+          image={`https://www.themoviedb.org/t/p/w440_and_h660_face/${movie.poster_path}` || notFound}
           alt={movie.title}
         />
         <CardContent>
