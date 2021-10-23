@@ -7,8 +7,8 @@ import MovieCard from '../componenets/MovieCard/index'
 import { connect } from "react-redux";
 import { initMovies, starMovie, unstarMovie } from "../store/movies/actions";
 const Movies = (props) => {
-  const { init, moviesList } = props;
-  useEffect(() => {
+  const { init, moviesList, add, remove } = props;
+  const fetchData = () =>{
     axios
       .get(API.movies("now_playing"))
       .then(function (response) {
@@ -23,8 +23,14 @@ const Movies = (props) => {
       .then(function () {
         // always executed
       });
-    console.log(process.env.REACT_APP_THE_MOVIE_DB_KEY);
+  }
+  useEffect(() => {
+    moviesList.length == 0 && fetchData()
   }, []);
+
+  const handleLikeMovie = (movieData) =>{
+    add(movieData)
+  }
 
   if (!moviesList) {
     return <h1>loading...</h1>;
@@ -32,7 +38,11 @@ const Movies = (props) => {
   return (
     <Grid container spacing={4}>
       {moviesList.map((movie) => (
-        <MovieCard key={movie.id} movie={movie}/>
+        <MovieCard 
+        handleRemoveMovie={(id)=>{remove(id)}}  
+        handleLikeMovie={(id)=>{add(id)}} 
+         key={movie.id} 
+         movie={movie}/>
       ))}
     </Grid>
   );

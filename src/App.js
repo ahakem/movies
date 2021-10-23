@@ -4,7 +4,8 @@ import { Provider } from "react-redux";
 import Layout from "./componenets/layout";
 import { useStore } from "./store";
 import Movies from "./screens/Movies";
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Favorites from "./screens/Favorites"
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 export default function App() {
   const store = useStore();
 
@@ -12,12 +13,17 @@ export default function App() {
     <Provider store={store}>
       <Router>
         <Layout>
-          <Route exact path="/">
-            <Movies />
-          </Route>
-          <Route exact path="/fav">
-            <h1>will show fav here</h1>
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Movies />
+            </Route>
+            <Route exact path="/fav">
+              <Favorites/>
+            </Route>
+            <Route path="*">
+              <center>No found page Goes here!</center>
+            </Route>
+          </Switch>
         </Layout>
       </Router>
     </Provider>

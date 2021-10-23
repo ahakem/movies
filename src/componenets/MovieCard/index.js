@@ -14,7 +14,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import dayjs from "dayjs";
 
 import { BoxHeader } from "./style";
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, handleRemoveMovie, handleLikeMovie }) => {
 
   
   return (
@@ -34,9 +34,14 @@ const MovieCard = ({ movie }) => {
         />
         <CardContent>
           <Box display="flex" justifyContent="space-around" alignItems="center">
-            <IconButton aria-label="add to favorites">
+            {movie.favorit ?
+            <IconButton onClick={()=>{handleRemoveMovie(movie.id)}} aria-label="Remove to favorites">
               <FavoriteIcon color="error" />
-            </IconButton>
+            </IconButton>:
+            <IconButton onClick={()=>{handleLikeMovie(movie.id)}} aria-label="Add from favorites">
+            <FavoriteBorderIcon />
+          </IconButton>
+            }
             <Badge color="secondary" badgeContent={movie.vote_average}>
               <StarsIcon />
             </Badge>
