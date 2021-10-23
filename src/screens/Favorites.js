@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import MovieCard from "../componenets/MovieCard/index";
+import MovieCard from "../components/MovieCard/index";
 import { connect } from "react-redux";
 import { unstarMovie } from "../store/movies/actions";
 
