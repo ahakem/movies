@@ -35,7 +35,8 @@ const Movies = (props) => {
   if (!moviesList) {
     return <h1>loading...</h1>;
   }
-  return (
+  return (<>
+    <h1> Movies List</h1>
     <Grid container spacing={4}>
       {moviesList.map((movie) => (
         <MovieCard 
@@ -45,7 +46,7 @@ const Movies = (props) => {
          movie={movie}/>
       ))}
     </Grid>
-  );
+    </>);
 };
 
 const mapStateToProps = (state) => {

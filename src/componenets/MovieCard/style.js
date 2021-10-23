@@ -5,7 +5,7 @@ import { CardHeader} from '@mui/material';
 export const BoxHeader = styled(CardHeader)({
     '& .MuiCardHeader-title':{
         fontSize: 16,
-        fontWight:'bold',
+        fontWeight:'bold',
         whiteSpace: 'nowrap'
     }
   });
