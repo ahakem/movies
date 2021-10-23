@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios, { API } from "../config/axios";
 import { Grid } from "@mui/material";
-import MovieCard from "../componenets/MovieCard/index";
+import MovieCard from "../components/MovieCard/index";
 import { connect } from "react-redux";
 import { initMovies, starMovie, unstarMovie } from "../store/movies/actions";
 import MoviesPlaceHolder from './MoviesPlaceHolder'
