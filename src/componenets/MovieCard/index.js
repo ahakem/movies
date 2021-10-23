@@ -36,7 +36,7 @@ const MovieCard = ({ movie, handleRemoveMovie, handleLikeMovie }) => {
           <Box display="flex" justifyContent="space-around" alignItems="center">
             {movie.favorit ?
             <IconButton onClick={()=>{handleRemoveMovie(movie.id)}} aria-label="Remove to favorites">
-              <FavoriteIcon color="error" />
+              <FavoriteIcon color="primary" />
             </IconButton>:
             <IconButton onClick={()=>{handleLikeMovie(movie.id)}} aria-label="Add from favorites">
             <FavoriteBorderIcon />

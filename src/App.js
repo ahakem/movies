@@ -6,12 +6,15 @@ import { useStore } from "./store";
 import Movies from "./screens/Movies";
 import Favorites from "./screens/Favorites"
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import {  ThemeProvider,  } from '@mui/material/styles';
+import {theme} from './config/theme'
 export default function App() {
   const store = useStore();
 
   return (
     <Provider store={store}>
       <Router>
+      <ThemeProvider theme={theme}>
         <Layout>
           <Switch>
             <Route exact path="/">
@@ -25,6 +28,7 @@ export default function App() {
             </Route>
           </Switch>
         </Layout>
+        </ThemeProvider>
       </Router>
     </Provider>
   );

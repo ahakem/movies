@@ -14,7 +14,6 @@ const Movies = (props) => {
       .then(function (response) {
         // handle success
         init(response.data.results);
-        console.table(response.data.results[0])
       })
       .catch(function (error) {
         // handle error
