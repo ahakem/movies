@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import axios, { API } from "../config/axios";
-import {
-  Grid,
-} from "@mui/material";
-import MovieCard from '../componenets/MovieCard/index'
+import { Grid } from "@mui/material";
+import MovieCard from "../componenets/MovieCard/index";
 import { connect } from "react-redux";
 import { initMovies, starMovie, unstarMovie } from "../store/movies/actions";
+import MoviesPlaceHolder from './MoviesPlaceHolder'
 const Movies = (props) => {
   const { init, moviesList, add, remove } = props;
-  const fetchData = () =>{
+  const fetchData = () => {
     axios
       .get(API.movies("now_playing"))
       .then(function (response) {
@@ -19,33 +18,33 @@ const Movies = (props) => {
         // handle error
         console.log(error);
       })
-      .then(function () {
-        // always executed
-      });
-  }
+  };
   useEffect(() => {
-    moviesList.length == 0 && fetchData()
+    moviesList.length == 0 && fetchData();
   }, []);
 
-  const handleLikeMovie = (movieData) =>{
-    add(movieData)
+  if (!moviesList || moviesList.length === 0) {
+    return (<MoviesPlaceHolder />);
   }
-
-  if (!moviesList) {
-    return <h1>loading...</h1>;
-  }
-  return (<>
-    <h1> Movies List</h1>
-    <Grid container spacing={4}>
-      {moviesList.map((movie) => (
-        <MovieCard 
-        handleRemoveMovie={(id)=>{remove(id)}}  
-        handleLikeMovie={(id)=>{add(id)}} 
-         key={movie.id} 
-         movie={movie}/>
-      ))}
-    </Grid>
-    </>);
+  return (
+    <>
+      <h1> Movies List</h1>
+      <Grid container spacing={4}>
+        {moviesList.map((movie) => (
+          <MovieCard
+            handleRemoveMovie={(id) => {
+              remove(id);
+            }}
+            handleLikeMovie={(id) => {
+              add(id);
+            }}
+            key={movie.id}
+            movie={movie}
+          />
+        ))}
+      </Grid>
+    </>
+  );
 };
 
 const mapStateToProps = (state) => {

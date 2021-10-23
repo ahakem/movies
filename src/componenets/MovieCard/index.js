@@ -12,7 +12,6 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarsIcon from "@mui/icons-material/Stars";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import dayjs from "dayjs";
-
 import { BoxHeader } from "./style";
 import notFound from '../../assets/imgs/not-found.png'
 const MovieCard = ({ movie, handleRemoveMovie, handleLikeMovie }) => {
